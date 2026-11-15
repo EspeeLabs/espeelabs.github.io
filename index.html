@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EspeeLabs is an independent application development studio. Independent apps designed to make everyday experiences more meaningful.">
+  <meta name="author" content="EspeeLabs">
+  <meta name="color-scheme" content="light">
+  <title>EspeeLabs — Independent apps</title>
+  <style>
+    :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #171717; background: #f7f7f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; text-underline-offset: .25em; }
+    a:hover { text-decoration-thickness: .14em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; border-radius: 2px; }
+    .page { width: min(100% - 64px, 1120px); margin-inline: auto; }
+    header { padding-block: 48px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .identity { font-size: 1rem; font-weight: 650; letter-spacing: -.03em; }
+    nav { font-size: .875rem; }
+    nav a { text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .hero { padding-block: 64px 96px; }
+    .logo { display: block; width: min(100%, 600px); height: auto; margin-bottom: 56px; }
+    .eyebrow { margin: 0 0 20px; color: #575757; font-size: .75rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { max-width: 950px; margin: 0; font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 500; line-height: 1.12; letter-spacing: -.055em; text-wrap: balance; }
+    .app { border-top: 1px solid #cfcfcb; padding-block: 48px 72px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+    .app h2 { margin: 0 0 20px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.045em; }
+    .description { max-width: 540px; margin: 0; color: #505050; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.55; letter-spacing: -.02em; }
+    .links { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 32px; font-size: .9375rem; }
+    footer { border-top: 1px solid #cfcfcb; padding-block: 24px 32px; color: #575757; font-size: .8125rem; }
+    footer p { margin: 0; }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 40px); }
+      header { padding-top: 28px; }
+      .hero { padding-block: 48px 64px; }
+      .logo { margin-bottom: 40px; }
+      .app { grid-template-columns: 1fr; gap: 12px; padding-block: 32px 48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <span class="identity">EspeeLabs</span>
+      <nav aria-label="Main navigation"><a href="#bloomingbitz">Our apps <span aria-hidden="true">↗</span></a></nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="intro">
+        <img class="logo" src="assets/espeelabs-logo.png" alt="EspeeLabs" width="1968" height="719">
+        <p class="eyebrow">Independent application development studio</p>
+        <h1 id="intro">Independent apps designed to make everyday experiences more meaningful.</h1>
+      </section>
+      <section class="app" id="bloomingbitz" aria-labelledby="app-name">
+        <p class="eyebrow">Our apps / 01</p>
+        <div>
+          <h2 id="app-name">BloomingBitz</h2>
+          <p class="description">A walking experience that reveals beautiful messages, one step at a time.</p>
+          <div class="links">
+            <a href="/bloomingbitz/privacy/">Privacy policy</a>
+            <a href="/bloomingbitz/support/">Support</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><p>© EspeeLabs</p></footer>
+  </div>
+</body>
+</html>
