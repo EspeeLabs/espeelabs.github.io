@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Someone sent you a special Bloom. Open BloomingBitz to discover it, one step at a time.">
+  <meta property="og:title" content="A Bloom for you — BloomingBitz">
+  <meta property="og:description" content="Discover a special Bloom, one step at a time.">
+  <title>A Bloom for you — BloomingBitz</title>
+  <link rel="stylesheet" href="invitation.css">
+  <script src="invitation.js" defer></script>
+</head>
+<body>
+  <main>
+    <p>EspeeLabs / BloomingBitz</p>
+    <h1>Someone sent you a special Bloom.</h1>
+    <p>Open BloomingBitz to discover it, one step at a time.</p>
+    <h2>Install, then tap again</h2>
+    <p>If you haven’t installed BloomingBitz, look for it in the App Store. If it isn’t available yet, keep the original invitation until launch.</p>
+    <p>After installing, return to the original message and tap the invitation again. If the link stays in a browser, try opening the original message in Messages or Safari.</p>
+    <section aria-labelledby="copy-title">
+      <h2 id="copy-title">Or use a Bloom Code</h2>
+      <p>Copy the code, then open BloomingBitz → Discover the Message and paste it. Walking reveals the Bloom; opening this page does not reveal the message.</p>
+      <button id="copy" type="button" disabled>Copy Bloom Code</button>
+      <p id="status" role="status" aria-live="polite">Looking for your invitation…</p>
+      <label for="code" hidden id="code-label">Bloom Code (select and copy)</label>
+      <textarea id="code" readonly hidden rows="5" spellcheck="false" autocapitalize="off"></textarea>
+    </section>
+    <noscript><p>Enable JavaScript to copy the Bloom Code, or keep the original invitation and tap it again after installing BloomingBitz.</p></noscript>
+    <p class="privacy">The code contains the personal message. Share it only with people you choose. This page processes it locally without sending it to our server.</p>
+    <footer><a href="/bloomingbitz/support/">Support</a> · <a href="/bloomingbitz/privacy/">Privacy</a></footer>
+  </main>
+</body>
+</html>

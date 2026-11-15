@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "details": [{
+      "appIDs": ["QMH8542N9X.com.espeelabs.bloomingbitz"],
+      "components": [{ "/": "/bloomingbitz/b/" }]
+    }]
+  }
+}
