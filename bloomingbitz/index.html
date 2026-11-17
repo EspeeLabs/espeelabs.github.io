@@ -117,7 +117,7 @@
       letter-spacing: .02em;
     }
     h1 {
-      margin: 0 0 20px;
+      margin: 0 0 28px;
       font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       font-size: clamp(2rem, 5vw, 3.35rem);
       font-weight: 500;
@@ -239,7 +239,80 @@
     .band { background: var(--night); color: #f6efe6; }
     .band .wrap { padding-block: 72px; }
     .band h2 { color: #fff; }
-    .panel p, .steps p { color: #d8c8bb; line-height: 1.6; }
+    .band .kicker { color: var(--gold); }
+    .panel p, .steps p, .band .flow-step p, .band .journey-head p, .band .share-note { color: #d8c8bb; line-height: 1.6; }
+    .journey-head { max-width: 38rem; margin-bottom: 36px; }
+    .journey-head p { margin: 0; }
+    .flow {
+      list-style: none;
+      margin: 40px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 28px;
+      align-items: start;
+    }
+    .flow-3 { grid-template-columns: repeat(3, 1fr); }
+    .flow-step { margin: 0; text-align: center; }
+    .flow-step .phone { width: min(100%, 300px); }
+    .flow-step h3 {
+      margin: 16px 0 6px;
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+    .flow-step p { margin: 0 auto; max-width: 22rem; font-size: .95rem; }
+    .bloom-reveal-frames {
+      position: relative;
+      aspect-ratio: 471 / 1024;
+    }
+    .bloom-reveal-frames img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 26px;
+      opacity: 0;
+      animation: bloom-reveal-1 12s linear infinite;
+    }
+    .bloom-reveal-frames img:nth-child(2) { animation-name: bloom-reveal-2; }
+    .bloom-reveal-frames img:nth-child(3) { animation-name: bloom-reveal-3; }
+    .bloom-reveal-frames img:nth-child(4) { animation-name: bloom-reveal-4; }
+    .bloom-reveal-frames img:nth-child(5) { animation-name: bloom-reveal-5; }
+    .bloom-reveal-frames img:nth-child(6) { animation-name: bloom-reveal-6; }
+    @keyframes bloom-reveal-1 {
+      0%, 9.167% { opacity: 1; }
+      12.5%, 96.667% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes bloom-reveal-2 {
+      0%, 9.167% { opacity: 0; }
+      12.5%, 21.667% { opacity: 1; }
+      25%, 100% { opacity: 0; }
+    }
+    @keyframes bloom-reveal-3 {
+      0%, 21.667% { opacity: 0; }
+      25%, 34.167% { opacity: 1; }
+      37.5%, 100% { opacity: 0; }
+    }
+    @keyframes bloom-reveal-4 {
+      0%, 34.167% { opacity: 0; }
+      37.5%, 46.667% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes bloom-reveal-5 {
+      0%, 46.667% { opacity: 0; }
+      50%, 59.167% { opacity: 1; }
+      62.5%, 100% { opacity: 0; }
+    }
+    @keyframes bloom-reveal-6 {
+      0%, 59.167% { opacity: 0; }
+      62.5%, 96.667% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    .share-note { margin: 28px 0 0; max-width: 36rem; }
+    .light-section .flow-step p { color: var(--muted); }
+    .light-section .journey-head p { color: var(--muted); }
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -280,7 +353,11 @@
       padding: 10px;
       box-shadow: 0 30px 70px rgba(0,0,0,.35);
     }
-    .phone img { display: block; width: 100%; border-radius: 26px; }
+    .phone img { display: block; width: 100%; height: auto; border-radius: 26px; }
+    .phone .bloom-reveal-frames img {
+      height: 100%;
+      object-fit: contain;
+    }
     .light-section { padding-block: 80px; }
     .placeholder {
       min-height: 280px;
@@ -323,7 +400,18 @@
       border-radius: 28px;
       padding: 20px;
     }
-    .stages img { display: block; width: min(100%, 720px); margin-inline: auto; }
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stages-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      background: #111;
+    }
     .cta-band {
       text-align: center;
       padding-block: 72px 48px;
@@ -354,8 +442,10 @@
       header { flex-wrap: wrap; align-items: flex-start; }
       .brand img { height: 28px; }
       nav { width: 100%; }
-      .hero, .split, .gallery, .trio { grid-template-columns: 1fr; }
+      .hero, .split, .gallery, .trio, .flow, .flow-3 { grid-template-columns: 1fr; }
       .comic { grid-template-columns: 1fr 1fr; gap: 12px 12px; }
+      .stages-grid { grid-template-columns: 1fr 1fr; }
+      .flow-step .phone { width: min(100%, 280px); }
       .comic-viewer .comic { grid-template-columns: 1fr; gap: 20px; }
       .comic-viewer img { object-fit: cover; }
       .comic-viewer q { font-size: 1.05rem; }
@@ -376,6 +466,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .comic-lightbox, .comic-lightbox-sheet { transition: none; }
+      .bloom-reveal-frames img { animation: none; opacity: 0; }
+      .bloom-reveal-frames img:last-child { opacity: 1; }
     }
     body.comic-lb-open { overflow: hidden; }
     .comic-lightbox {
@@ -490,8 +582,7 @@
         <div>
           <img class="logo" src="media/logo.png" width="804" height="479" alt="BloomingBitz">
           <p class="subtitle">A Message Worth Walking For</p>
-          <h1 id="promise">Walking toward a message from someone who loves you.</h1>
-          <p class="lede">She stopped reminding them to exercise. She sent a Bloom instead — a hidden artwork, and her words waiting at the end of the walk.</p>
+          <h1 id="promise">Turn Every Step Into a Discovery.</h1>
           <div class="cta-row">
             <span class="store-btn" role="note" aria-disabled="true">App Store · Coming Soon</span>
             <p class="cta-note">iPhone. Available at launch.</p>
@@ -507,7 +598,7 @@
           <div class="story-copy">
             <p class="kicker">The story</p>
             <h2 id="story-title">From a reminder to a reason to walk.</h2>
-            <p>Eight moments. Read left to right.</p>
+            <p>She stopped reminding them to exercise. She sent a Bloom instead — a hidden artwork, and her words waiting at the end of the walk.</p>
           </div>
           <button type="button" class="story-view" aria-haspopup="dialog" aria-controls="comic-lightbox">View Full Story</button>
         </div>
@@ -565,123 +656,69 @@
     </div>
 
     <section class="band" id="send" aria-labelledby="send-title">
-      <div class="wrap split">
-        <div class="panel">
-          <p class="kicker">For the sender</p>
-          <h2 id="send-title">Choose a Bloom. Write. Share.</h2>
-          <p>Pick a Family Bloom. Write the words you would rather they walk toward than hear as a reminder. Share the invitation — the message stays hidden until they have walked.</p>
-          <ol class="steps">
-            <li>
-              <span class="num" aria-hidden="true">1</span>
-              <div>
-                <h3>Choose a Bloom</h3>
-                <p>Family tiles include Proud of You, Love You Always, and Thank You.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num" aria-hidden="true">2</span>
-              <div>
-                <h3>Write a message</h3>
-                <p>A short, personal note — yours, not a template.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num" aria-hidden="true">3</span>
-              <div>
-                <h3>Share</h3>
-                <p>Send the Bloom. They open it, then walk it open.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <figure class="phone">
-          <img src="media/screenshot-choose-bloom.png" width="414" height="900" alt="BloomingBitz Send a Message screen on the Family tab, showing Proud of You, Love You Always, and Thank You">
-        </figure>
-      </div>
-      <div class="wrap trio">
-        <div>
-          <div class="placeholder" role="img" aria-label="Placeholder for an approved screenshot of writing a personal message">
-            <p><strong>Placeholder</strong>Approved screenshot needed: writing a personal message.</p>
+      <div class="wrap">
+        <div class="split">
+          <div class="panel">
+            <p class="kicker">Send a Message</p>
+            <h2 id="send-title">Choose a Bloom. Write. Share.</h2>
+            <p>Pick a design and write a short note. Share the Bloom when you are ready. The words stay hidden until they walk.</p>
           </div>
-          <p class="cap">2 · Write a message</p>
+          <figure class="phone">
+            <img src="media/screenshot-home.jpg" width="471" height="1024" alt="BloomingBitz home menu with Send a Message, Discover the Message, History, and Settings">
+          </figure>
         </div>
-        <div>
-          <div class="placeholder" role="img" aria-label="Placeholder for an approved screenshot of Share Bloom">
-            <p><strong>Placeholder</strong>Approved screenshot needed: Share Bloom, with no Bloom token visible.</p>
-          </div>
-          <p class="cap">3 · Share</p>
-        </div>
-        <div>
-          <div class="placeholder" role="img" aria-label="Placeholder for an approved screenshot of Discover the Message">
-            <p><strong>Placeholder</strong>Approved screenshot needed: Discover the Message (current import screen).</p>
-          </div>
-          <p class="cap">Receive · Discover the Message</p>
-        </div>
+        <ol class="flow">
+          <li class="flow-step">
+            <figure class="phone">
+              <img src="media/screenshot-send-choose.jpg" width="471" height="1024" alt="Send a Message: Family tab with Thank You, Proud of You, and Love You Always Bloom designs">
+            </figure>
+            <h3>1 · Choose a Bloom</h3>
+            <p>Thank You, Proud of You, or Love You Always — for family, or for someone else you care about.</p>
+          </li>
+          <li class="flow-step">
+            <figure class="phone">
+              <img src="media/screenshot-send-write.jpg" width="471" height="1024" alt="Make it personal screen for a Love You Always Bloom, with a short sample note and Create Bloom">
+            </figure>
+            <h3>2 · Write a note</h3>
+            <p>A few personal words. They unlock after the first walking milestone.</p>
+          </li>
+        </ol>
+        <p class="share-note">3 · Share the Bloom. They open Discover the Message, then walk.</p>
       </div>
     </section>
 
     <section class="light-section" id="receive" aria-labelledby="receive-title">
-      <div class="wrap split">
-        <div>
-          <p class="kicker">For the recipient</p>
-          <h2 id="receive-title">Receive. Walk. Reveal. Discover.</h2>
-          <p class="ink-copy">Open the Bloom. Walk. Colour gathers into a picture you could not see at the start. At the end, her message is waiting.</p>
-          <ol class="steps ink-steps">
-            <li>
-              <span class="num" aria-hidden="true">1</span>
-              <div>
-                <h3>Receive</h3>
-                <p>A Bloom arrives as an invitation. Nothing of the message is shown yet.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num" aria-hidden="true">2</span>
-              <div>
-                <h3>Walk</h3>
-                <p>Steps count on the iPhone. Pause when you need to. Keep going when you are ready.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num" aria-hidden="true">3</span>
-              <div>
-                <h3>Reveal artwork</h3>
-                <p>Hidden colour blooms cell by cell into a complete design.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num" aria-hidden="true">4</span>
-              <div>
-                <h3>Discover the message</h3>
-                <p>The personal words unlock after the walk has earned them.</p>
-              </div>
-            </li>
-          </ol>
-          <div class="walk-row">
-            <img src="media/beebee-walk.png" width="360" height="440" alt="Beebee walking">
-          </div>
-        </div>
-        <div class="gallery pair">
-          <figure>
-            <div class="phone">
-              <img src="media/screenshot-walking-heart.png" width="414" height="900" alt="BloomingBitz walking canvas: a yellow heart filling with orange as steps remain">
-            </div>
-            <figcaption>Artwork revealing as they walk</figcaption>
-          </figure>
-          <figure>
-            <div class="phone">
-              <img src="media/screenshot-thank-you.png" width="414" height="900" alt="BloomingBitz canvas showing completed Thank You artwork">
-            </div>
-            <figcaption>A finished Bloom</figcaption>
-          </figure>
-        </div>
-      </div>
       <div class="wrap">
-        <figure class="stages">
-          <img src="media/screenshot-reveal-stages.png" width="653" height="1200" alt="Twelve stages of a Thank You Bloom, from the first yellow fragments to a fully coloured design">
-          <figcaption class="cap">How a Bloom unfolds, step by step</figcaption>
-        </figure>
-        <div class="placeholder" role="img" aria-label="Placeholder for an approved screenshot of reading the unlocked personal message" style="margin-top:28px;">
-          <p><strong>Placeholder</strong>Approved screenshot needed: Read message after the first milestone — no personal text from a real Bloom.</p>
+        <div class="journey-head">
+          <p class="kicker">Discover the Message</p>
+          <h2 id="receive-title">Open a Bloom. Walk. Reveal.</h2>
+          <p>Paste the invitation and start walking. Artwork gathers with every step. At the end, their message is waiting.</p>
+        </div>
+        <ol class="flow">
+          <li class="flow-step">
+            <figure class="phone">
+              <img src="media/screenshot-discover.jpg" width="471" height="1024" alt="Discover the Message screen, with a paste field for a Bloom invitation and a Discover button">
+            </figure>
+            <h3>1 · Discover the Message</h3>
+            <p>Open the Bloom they sent you.</p>
+          </li>
+          <li class="flow-step">
+            <figure class="phone">
+              <div class="bloom-reveal-frames">
+                <img src="media/screenshot-walk-early.jpg" width="471" height="1024" alt="A Thank You Bloom revealing as the recipient walks, from the first fragments to the completed artwork">
+                <img src="media/screenshot-walk-pause.jpg" width="471" height="1024" alt="" aria-hidden="true">
+                <img src="media/screenshot-walk-mid.jpg" width="471" height="1024" alt="" aria-hidden="true">
+                <img src="media/screenshot-walk-almost.jpg" width="471" height="1024" alt="" aria-hidden="true">
+                <img src="media/screenshot-blooming.jpg" width="471" height="1024" alt="" aria-hidden="true">
+                <img src="media/screenshot-thank-you-complete.jpg" width="471" height="1024" alt="" aria-hidden="true">
+              </div>
+            </figure>
+            <h3>2 · Walk to Reveal</h3>
+            <p>Artwork gathers as they walk.</p>
+          </li>
+        </ol>
+        <div class="walk-row">
+          <img src="media/beebee-walk.png" width="360" height="440" alt="Beebee walking">
         </div>
       </div>
     </section>
