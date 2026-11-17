@@ -27,6 +27,8 @@
     .app { border-top: 1px solid #cfcfcb; padding-block: 48px 72px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
     .app h2 { margin: 0 0 20px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.045em; }
     .description { max-width: 540px; margin: 0; color: #505050; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.55; letter-spacing: -.02em; }
+    .app h2 a { text-decoration: none; }
+    .app h2 a:hover { text-decoration: underline; }
     .links { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 32px; font-size: .9375rem; }
     footer { border-top: 1px solid #cfcfcb; padding-block: 24px 32px; color: #575757; font-size: .8125rem; }
     footer p { margin: 0; }
@@ -54,9 +56,10 @@
       <section class="app" id="bloomingbitz" aria-labelledby="app-name">
         <p class="eyebrow">Our apps / 01</p>
         <div>
-          <h2 id="app-name">BloomingBitz</h2>
+          <h2 id="app-name"><a href="/bloomingbitz/">BloomingBitz</a></h2>
           <p class="description">A walking experience that reveals beautiful messages, one step at a time.</p>
           <div class="links">
+            <a href="/bloomingbitz/">Landing page</a>
             <a href="/bloomingbitz/privacy/">Privacy policy</a>
             <a href="/bloomingbitz/support/">Support</a>
           </div>
